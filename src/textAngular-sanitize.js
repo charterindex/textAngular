@@ -195,7 +195,7 @@ var optionalEndTagBlockElements = makeMap("colgroup,dd,dt,li,p,tbody,td,tfoot,th
 
 // Safe Block Elements - HTML5
 var blockElements = angular.extend({}, optionalEndTagBlockElements, makeMap("address,article," +
-        "aside,blockquote,caption,center,del,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5," +
+        "aside,blockquote,caption,center,del,dir,div,dl,figure,figcaption,footer,h2,h3,h4,h5," +
         "h6,header,hgroup,hr,ins,map,menu,nav,ol,pre,script,section,table,ul"));
 
 // Inline Elements - HTML5
@@ -205,13 +205,13 @@ var inlineElements = angular.extend({}, optionalEndTagInlineElements, makeMap("a
 
 // SVG Elements
 // https://wiki.whatwg.org/wiki/Sanitization_rules#svg_Elements
-var svgElements = makeMap("animate,animateColor,animateMotion,animateTransform,circle,defs," +
+var svgElements = makeMap(""/*animate,animateColor,animateMotion,animateTransform,circle,defs," +
         "desc,ellipse,font-face,font-face-name,font-face-src,g,glyph,hkern,image,linearGradient," +
         "line,marker,metadata,missing-glyph,mpath,path,polygon,polyline,radialGradient,rect,set," +
-        "stop,svg,switch,text,title,tspan,use");
+        "stop,svg,switch,text,title,tspan,use"*/);
 
 // Special Elements (can contain anything)
-var specialElements = makeMap("script,style");
+var specialElements = makeMap(""/*script,style"*/);
 
 var validElements = angular.extend({},
                                    voidElements,
@@ -223,15 +223,12 @@ var validElements = angular.extend({},
 //Attributes that have href and hence need to be sanitized
 var uriAttrs = makeMap("background,cite,href,longdesc,src,usemap,xlink:href");
 
-var htmlAttrs = makeMap('abbr,align,alt,axis,bgcolor,border,cellpadding,cellspacing,class,clear,'+
-    'color,cols,colspan,compact,coords,dir,face,headers,height,hreflang,hspace,'+
-    'id,ismap,lang,language,nohref,nowrap,rel,rev,rows,rowspan,rules,'+
-    'scope,scrolling,shape,size,span,start,summary,target,title,type,'+
-    'valign,value,vspace,width');
+var htmlAttrs = makeMap('align,alt,border,cellpadding,cellspacing,class,cols,' +
+    'colspan,id,rel,rows,rowspan,span,start,summary,target,title');
 
 // SVG attributes (without "id" and "name" attributes)
 // https://wiki.whatwg.org/wiki/Sanitization_rules#svg_Attributes
-var svgAttrs = makeMap('accent-height,accumulate,additive,alphabetic,arabic-form,ascent,' +
+var svgAttrs = makeMap('accent-height'/*,accumulate,additive,alphabetic,arabic-form,ascent,' +
     'attributeName,attributeType,baseProfile,bbox,begin,by,calcMode,cap-height,class,color,' +
     'color-rendering,content,cx,cy,d,dx,dy,descent,display,dur,end,fill,fill-rule,font-family,' +
     'font-size,font-stretch,font-style,font-variant,font-weight,from,fx,fy,g1,g2,glyph-name,' +
@@ -246,7 +243,7 @@ var svgAttrs = makeMap('accent-height,accumulate,additive,alphabetic,arabic-form
     'underline-position,underline-thickness,unicode,unicode-range,units-per-em,values,version,' +
     'viewBox,visibility,width,widths,x,x-height,x1,x2,xlink:actuate,xlink:arcrole,xlink:role,' +
     'xlink:show,xlink:title,xlink:type,xml:base,xml:lang,xml:space,xmlns,xmlns:xlink,y,y1,y2,' +
-    'zoomAndPan');
+    'zoomAndPan'*/);
 
 var validAttrs = angular.extend({},
                                 uriAttrs,
