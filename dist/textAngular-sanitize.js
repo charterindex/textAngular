@@ -200,7 +200,7 @@ var blockElements = angular.extend({}, optionalEndTagBlockElements, makeMap("add
 
 // Inline Elements - HTML5
 var inlineElements = angular.extend({}, optionalEndTagInlineElements, makeMap("a,abbr,acronym,b," +
-        "bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,q,ruby,rp,rt,s," +
+        "bdi,bdo,big,br,cite,code,del,dfn,em,i,img,ins,kbd,label,map,mark,q,ruby,rp,rt,s," +
         "samp,small,span,strike,strong,sub,sup,time,tt,u,var"));
 
 // SVG Elements
@@ -519,22 +519,6 @@ function validStyles(styleAttr){
 			var key = trim(angular.lowercase(v[0]));
 			var value = trim(angular.lowercase(v[1]));
 			if(
-				(key === 'color' || key === 'background-color') && (
-					value.match(/^rgb\([0-9%,\. ]*\)$/i)
-					|| value.match(/^rgba\([0-9%,\. ]*\)$/i)
-					|| value.match(/^hsl\([0-9%,\. ]*\)$/i)
-					|| value.match(/^hsla\([0-9%,\. ]*\)$/i)
-					|| value.match(/^#[0-9a-f]{3,6}$/i)
-					|| value.match(/^[a-z]*$/i)
-				)
-			||
-				key === 'text-align' && (
-					value === 'left'
-					|| value === 'right'
-					|| value === 'center'
-					|| value === 'justify'
-				)
-			||
         key === 'text-decoration' && (
             value === 'underline'
             || value === 'line-through'
@@ -547,44 +531,6 @@ function validStyles(styleAttr){
         key === 'font-style' && (
           value === 'italic'
         )
-      ||
-        key === 'float' && (
-            value === 'left'
-            || value === 'right'
-            || value === 'none'
-        )
-      ||
-        key === 'vertical-align' && (
-            value === 'baseline'
-            || value === 'sub'
-            || value === 'super'
-            || value === 'test-top'
-            || value === 'text-bottom'
-            || value === 'middle'
-            || value === 'top'
-            || value === 'bottom'
-            || value.match(/[0-9]*(px|em)/)
-            || value.match(/[0-9]+?%/)
-        )
-      ||
-        key === 'font-size' && (
-            value === 'xx-small'
-            || value === 'x-small'
-            || value === 'small'
-            || value === 'medium'
-            || value === 'large'
-            || value === 'x-large'
-            || value === 'xx-large'
-            || value === 'larger'
-            || value === 'smaller'
-            || value.match(/[0-9]*\.?[0-9]*(px|em|rem|mm|q|cm|in|pt|pc|%)/)
-                               )
-			||
-				(key === 'width' || key === 'height') && (
-					value.match(/[0-9\.]*(px|em|rem|%)/)
-				)
-			|| // Reference #520
-				(key === 'direction' && value.match(/^ltr|rtl|initial|inherit$/))
 			) result += key + ': ' + value + ';';
 		}
 	});
