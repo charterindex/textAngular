@@ -223,7 +223,7 @@ var validElements = angular.extend({},
 //Attributes that have href and hence need to be sanitized
 var uriAttrs = makeMap("background,cite,href,longdesc,src,usemap,xlink:href");
 
-var htmlAttrs = makeMap('align,alt,border,cellpadding,cellspacing,class,cols,' +
+var htmlAttrs = makeMap('align,alt,border,cellpadding,cellspacing,cols,' +
     'colspan,id,rel,rows,rowspan,span,start,summary,target,title');
 
 // SVG attributes (without "id" and "name" attributes)
